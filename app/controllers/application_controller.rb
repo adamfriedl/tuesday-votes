@@ -11,14 +11,16 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-  post "/" do
+  post "/volunteer" do
     @volunteer = Volunteer.new(params[:volunteer])
     @volunteer.save
+    
+    erb :welcome
   end
 
   private 
 
-  def person_params
+  def volunteer_params
     params.require(volunteer).permit(:first_name, :middle_initial, :last_name, :date_of_birth, :social_issues, :economy, :health_care, :environment, :other)
   end
 
