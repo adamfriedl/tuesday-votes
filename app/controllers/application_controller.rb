@@ -9,12 +9,15 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     @volunteers = Volunteer.all
+    @political_interests = PoliticalInterest.all
+    
     erb :welcome
   end
 
-  post "/volunteers" do
+  post "/" do
     @volunteer = Volunteer.new(params)
     @volunteer.save
+    @volunteers = Volunteer.all
     
     erb :welcome
   end

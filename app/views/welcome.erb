@@ -6,7 +6,7 @@
   Great State of Michigan<h2>
 </div>
 
-<form action="/volunteers" method="post">
+<form action="/" method="post">
 
   <label>First Name:</label>
   <input type="text" id="first_name" name="first_name">
@@ -23,7 +23,18 @@
   <fieldset>
     
     <legend>Political Interests:</legend>
+
     <div>
+      <%@political_interests.each do |political_interest|%>
+        <div>
+          <input type="checkbox" name="volunteer[political_interest_ids][]" value="<%=political_interest.id%>" id="<%=political_interest.id%>"><%=political_interest.name%></input>
+        </div>
+      <%end%>
+    </div>
+
+
+
+    <%# <div>
       <input type="checkbox" id="social_issues" name="interest" value="social_issues">
       <label for="social_issues">Social Issues</label>
     </div>
@@ -43,7 +54,7 @@
       <input type="checkbox" id="other" name="interest" value="other">
       <label for="other">Other<label>
       <%# <input type="text" id="other_value" name="other"> %>
-    </div>
+    <%# </div>  %>
   </fieldset>
 
   <input type="submit">
