@@ -50,8 +50,11 @@
 
 </form>
 
-</div>
-
+<ol>
+  <% @volunteers.each do |volunteer| %>
+    <li><%=volunteer.first_name%></li>
+  <% end %>
+</ol>
 
 
 

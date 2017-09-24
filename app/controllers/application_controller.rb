@@ -8,6 +8,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    @volunteers = Volunteer.all
     erb :welcome
   end
 
