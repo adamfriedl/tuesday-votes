@@ -31,6 +31,12 @@ class ApplicationController < Sinatra::Base
     erb :admin
   end
 
+  get "/volunteers" do
+    @volunteers = Volunteer.all
+
+    erb :volunteers
+  end
+
   # private 
 
   # def volunteer_params
