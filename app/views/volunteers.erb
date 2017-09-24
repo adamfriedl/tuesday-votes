@@ -2,16 +2,34 @@
   
   <h2>Volunteers and Interests</h2>
 
-  <% @volunteers.each do |volunteer| %>
-    <b><%= [volunteer.first_name, volunteer.middle_initial, volunteer.last_name].join(" ") %></b>
-    <br>
-    DOB: <%= volunteer.date_of_birth %>
-    <ul>
-      <% volunteer.political_interests.each do |pi| %>
-        <li><%= pi.name %></li>
+
+
+    <div class="mdl-layout-spacer"></div>
+
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">Name</th>
+          <th>Date of Birth</th>
+          <th class="mdl-data-table__cell--non-numeric">Political Interests</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <% @volunteers.each do |volunteer| %>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric"><%= [volunteer.first_name, volunteer.middle_initial, volunteer.last_name].join(" ") %></td>
+            <td><%= volunteer.date_of_birth %></td>
+            <td class="mdl-data-table__cell--non-numeric">
+              <% volunteer.political_interests.each do |pi| %>
+                <%= pi.name + " / "%>
+              <% end %>
+            </td>  
+          </tr>
       <% end %>
-    </ul>
-  <% end %>
+
+      </tbody>
+    </table>
 
 
 </div>

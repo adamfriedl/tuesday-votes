@@ -24,11 +24,11 @@ class ApplicationController < Sinatra::Base
     redirect "/"
   end
 
-  get "/admin" do
+  get "/registers" do
     @volunteers = Volunteer.all
     @voters = Voter.all
 
-    erb :admin
+    erb :registers
   end
 
   get "/volunteers" do
@@ -37,10 +37,9 @@ class ApplicationController < Sinatra::Base
     erb :volunteers
   end
 
-  # private 
+  get "/voters" do
+    @voters = Voter.all
 
-  # def volunteer_params
-  #   params.require(volunteer).permit(:first_name, :middle_initial, :last_name, :date_of_birth, :social_issues, :economy, :health_care, :environment, :other)
-  # end
-
+    erb :voters
+  end
 end
