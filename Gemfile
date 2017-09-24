@@ -12,6 +12,7 @@ gem 'pry'
 gem 'bcrypt'
 gem "tux"
 gem "faker"
+gem 'rb-readline', '~> 0.5.3'
 
 group :test do
   gem 'rspec'

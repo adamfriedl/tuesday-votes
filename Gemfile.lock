@@ -57,6 +57,7 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     rake (12.1.0)
+    rb-readline (0.5.4)
     require_all (1.4.0)
     ripl (0.7.1)
       bond (~> 0.5.1)
@@ -118,6 +119,7 @@ DEPENDENCIES
   pry
   rack-test
   rake
+  rb-readline (~> 0.5.3)
   require_all
   rspec
   shotgun
