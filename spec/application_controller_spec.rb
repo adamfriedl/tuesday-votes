@@ -35,6 +35,7 @@ describe "Application Controller" do
       @political_interest2 = PoliticalInterest.create(name: "Education")
       visit '/'
       fill_in "volunteer_first_name", with: "Bill"
+      fill_in "volunteer_last_name", with: "Taylor"
       check(@political_interest1.name)
       click_button "Create Volunteer"
       @volunteer = Volunteer.last
@@ -47,6 +48,7 @@ describe "Application Controller" do
       @political_interest2 = PoliticalInterest.create(name: "Education")
       visit '/'
       fill_in "volunteer_first_name", with: "Bill"
+      fill_in "volunteer_last_name", with: "Taylor"
       fill_in "political_interest_name", with: "Defense"
       click_button "Create Volunteer"
       @volunteer = Volunteer.last
