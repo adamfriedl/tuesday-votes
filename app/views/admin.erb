@@ -1,13 +1,38 @@
-As of <%= Time.new %>, <b><%= @volunteers.length %></b> individuals have completed the volunteer form. Our campaign has voter data on <b><%= @voters.length %></b> voters in the district. Matches are below. 
+<div class="centeritems mdl-grid">
 
-<div>
-  <ul>
-    <% Volunteer.all.each do |v| %>
-      <% if v.voter_registration %>
-        <li>
-          <%= v.voter_registration.name %>
-        </li>
+  <div class="mdl-cell--2-offset-desktop mdl-cell--1-offset-tablet mdl-cell--8-col">
+
+    <p>As of <%= Time.now.strftime("%B %d, %Y") %>, <b><%= @volunteers.length %></b> individuals have completed the volunteer form. Our campaign has voter data on <b><%= @voters.length %></b> voters in the district. Matches are below.</p> 
+
+    <div class="mdl-layout-spacer"></div>
+
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">Name</th>
+          <th>Age</th>
+          <th class="mdl-data-table__cell--non-numeric">Location</th>
+          <th>Last Contact</th>
+          <th>Phone Number</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <% Volunteer.all.each do |v| %>
+        <% if v.voter_registration %>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric"><%= v.voter_registration.name %></td>
+            <td><%= v.voter_registration.age %></td>
+            <td class="mdl-data-table__cell--non-numeric"><%= v.voter_registration.location %></td>
+            <td><%= v.voter_registration.date_last_contacted %></td>
+            <td><%= v.voter_registration.phone_number %></td>   
+          </tr>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
+
+      </tbody>
+    </table>
+
+  </div>
+
 </div>
