@@ -1,5 +1,13 @@
 As of <%= Time.new %>, <b><%= @volunteers.length %></b> individuals have completed the volunteer form. Our campaign has voter data on <b><%= @voters.length %></b> voters in the district. Matches are below. 
 
 <div>
-<%= Volunteer.last.match_voters(Voter.all) %>
+  <ul>
+    <% Volunteer.all.each do |v| %>
+      <% if v.voter_registration %>
+        <li>
+          <%= v.voter_registration.name %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
 </div>
