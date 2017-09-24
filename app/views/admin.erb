@@ -1,8 +1,9 @@
-<div class="centeritems mdl-grid">
+<div class="mdl-cell--2-offset-desktop mdl-cell--1-offset-tablet mdl-cell--8-col">
+  <h2>Voter Registration of Volunteers</h2>
+    
+    <p><%= @volunteers.length %></b> individuals have completed the volunteer form. Our campaign has voter data on <%= @voters.length %> voters in the district.</p>
 
-  <div class="mdl-cell--2-offset-desktop mdl-cell--1-offset-tablet mdl-cell--8-col">
-
-    <p>As of <%= Time.now.strftime("%B %d, %Y") %>, <b><%= @volunteers.length %></b> individuals have completed the volunteer form. Our campaign has voter data on <b><%= @voters.length %></b> voters in the district. Matches are below.</p> 
+    <p>The individuals' names below are found in both lists.
 
     <div class="mdl-layout-spacer"></div>
 
@@ -33,6 +34,5 @@
       </tbody>
     </table>
 
-  </div>
 
 </div>
