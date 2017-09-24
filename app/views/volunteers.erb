@@ -1,0 +1,17 @@
+<div class="mdl-cell--2-offset-desktop mdl-cell--1-offset-tablet mdl-cell--8-col">
+  
+  <h2>Volunteers and Interests</h2>
+
+  <% @volunteers.each do |volunteer| %>
+    <b><%= [volunteer.first_name, volunteer.middle_initial, volunteer.last_name].join(" ") %></b>
+    <br>
+    DOB: <%= volunteer.date_of_birth %>
+    <ul>
+      <% volunteer.political_interests.each do |pi| %>
+        <li><%= pi.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+
+</div>
