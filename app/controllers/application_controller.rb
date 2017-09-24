@@ -15,11 +15,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/" do
-    @volunteer = Volunteer.new(params)
-    @volunteer.save
-    @volunteers = Volunteer.all
+    @volunteer = Volunteer.create(params[:volunteer])
     
-    erb :welcome
+    redirect "/"
   end
 
   # private 

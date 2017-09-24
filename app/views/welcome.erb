@@ -9,16 +9,16 @@
 <form action="/" method="post">
 
   <label>First Name:</label>
-  <input type="text" id="first_name" name="first_name">
+  <input type="text" id="volunteer_first_name" name="volunteer[first_name]">
 
   <label>Middle Initial:</label>
-  <input type="text" id="middle_initial" name="middle_initial">
+  <input type="text" id="volunteer_middle_initial" name="volunteer[middle_initial]">
 
   <label>Last Name:</label>
-  <input type="text" id="last_name" name="last_name">
+  <input type="text" id="volunteer_last_name" name="volunteer[last_name]">
 
   <label>Date of Birth:</label>
-  <input type="date" id="date_of_birth" name="date_of_birth">
+  <input type="date" id="volunteer_date_of_birth" name="volunteer[date_of_birth]">
 
   <fieldset>
     
@@ -27,7 +27,7 @@
     <div>
       <%@political_interests.each do |political_interest|%>
         <div>
-          <input type="checkbox" name="volunteer[political_interest_ids][]" value="<%=political_interest.id%>" id="<%=political_interest.id%>"><%=political_interest.name%></input>
+          <input type="checkbox" name="volunteer[political_interest_id][]" value="<%=political_interest.id%>" id="<%=political_interest.id%>"><%=political_interest.name%></input>
         </div>
       <%end%>
     </div>
