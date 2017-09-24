@@ -2,34 +2,31 @@
   
   <h2>Voter Data</h2>
 
+  <div class="mdl-layout-spacer"></div>
 
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Name</th>
+        <th>Age</th>
+        <th class="mdl-data-table__cell--non-numeric">Location</th>
+        <th>Last Contact</th>
+        <th>Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
 
-    <div class="mdl-layout-spacer"></div>
+    <% @voters.each do |voter| %>
+      <tr>
+        <td class="mdl-data-table__cell--non-numeric"><%= voter.name %></td>
+        <td><%= voter.age %></td>
+        <td class="mdl-data-table__cell--non-numeric"><%= voter.location %></td>
+        <td><%= voter.date_last_contacted %></td>
+        <td><%= voter.phone_number %></td>   
+      </tr>
+    <% end %>
 
-     <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-      <thead>
-        <tr>
-          <th class="mdl-data-table__cell--non-numeric">Name</th>
-          <th>Age</th>
-          <th class="mdl-data-table__cell--non-numeric">Location</th>
-          <th>Last Contact</th>
-          <th>Phone Number</th>
-        </tr>
-      </thead>
-      <tbody>
-
-      <% @voters.each do |voter| %>
-        <tr>
-          <td class="mdl-data-table__cell--non-numeric"><%= voter.name %></td>
-          <td><%= voter.age %></td>
-          <td class="mdl-data-table__cell--non-numeric"><%= voter.location %></td>
-          <td><%= voter.date_last_contacted %></td>
-          <td><%= voter.phone_number %></td>   
-        </tr>
-      <% end %>
-
-      </tbody>
-    </table>
-
+    </tbody>
+  </table>
 
 </div>

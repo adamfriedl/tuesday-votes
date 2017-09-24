@@ -1,38 +1,38 @@
 <div class="mdl-cell--2-offset-desktop mdl-cell--1-offset-tablet mdl-cell--8-col">
+  
   <h2>Voter Registration of Volunteers</h2>
     
-    <p><a href="/volunteers"><%= @volunteers.length %></b> individuals</a> have completed the volunteer form. Our campaign has voter data on <a href="/voters"><%= @voters.length %> voters</a> in the district.</p>
+  <p><a href="/volunteers"><%= @volunteers.length %></b> individuals</a> have completed the volunteer form. Our campaign has voter data on <a href="/voters"><%= @voters.length %> voters</a> in the district.</p>
 
-    <p>The individuals' names below are found in both lists.
+  <p>The individuals' names below are found in both lists.
 
-    <div class="mdl-layout-spacer"></div>
+  <div class="mdl-layout-spacer"></div>
 
-    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-      <thead>
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Name</th>
+        <th>Age</th>
+        <th class="mdl-data-table__cell--non-numeric">Location</th>
+        <th>Last Contact</th>
+        <th>Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    <% Volunteer.all.each do |v| %>
+      <% if v.voter_registration %>
         <tr>
-          <th class="mdl-data-table__cell--non-numeric">Name</th>
-          <th>Age</th>
-          <th class="mdl-data-table__cell--non-numeric">Location</th>
-          <th>Last Contact</th>
-          <th>Phone Number</th>
+          <td class="mdl-data-table__cell--non-numeric"><%= v.voter_registration.name %></td>
+          <td><%= v.voter_registration.age %></td>
+          <td class="mdl-data-table__cell--non-numeric"><%= v.voter_registration.location %></td>
+          <td><%= v.voter_registration.date_last_contacted %></td>
+          <td><%= v.voter_registration.phone_number %></td>   
         </tr>
-      </thead>
-      <tbody>
-
-      <% Volunteer.all.each do |v| %>
-        <% if v.voter_registration %>
-          <tr>
-            <td class="mdl-data-table__cell--non-numeric"><%= v.voter_registration.name %></td>
-            <td><%= v.voter_registration.age %></td>
-            <td class="mdl-data-table__cell--non-numeric"><%= v.voter_registration.location %></td>
-            <td><%= v.voter_registration.date_last_contacted %></td>
-            <td><%= v.voter_registration.phone_number %></td>   
-          </tr>
-        <% end %>
       <% end %>
+    <% end %>
 
-      </tbody>
-    </table>
-
+    </tbody>
+  </table>
 
 </div>

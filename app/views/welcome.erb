@@ -1,13 +1,10 @@
-
-
 <div style="text-align: center">
   <h1>Karen Candidate</h1>
   <h2>Candidate for Office<br />
   Great State of Michigan<h2>
 </div>
 
-
-<div class="mdl-cell--2-offset-desktop mdl-cell--1-offset-tablet ">
+<div class="mdl-cell--2-offset-desktop mdl-cell--1-offset-tablet">
 
   <h3>Thanks for joining in our work! Please complete the volunteer form below and we'll be in touch!</h3>
 
@@ -39,7 +36,7 @@
         <h4>Political Interests:</h4>
 
         <div>
-          <%@political_interests.each do |political_interest|%>
+          <% @political_interests.each do |political_interest| %>
             <div>
               <label class="mdl-checkbox mdl-js-checkbox">
                 <input class="mdl-checkbox__input"type="checkbox" name="volunteer[political_interest_ids][]" value="<%=political_interest.id%>" id="<%=political_interest.name%>">
@@ -52,9 +49,11 @@
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
           <input class="mdl-textfield__input" type="text" id="political_interest_name" name="political_interest[name]">
           <label class="mdl-textfield__label">and/or a different interest</label>
-      </fieldset>
+        </div>
 
-      <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="Create Volunteer">
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" type="submit" value="Create Volunteer">
+   
+      </fieldset>
 
     </form>
 
