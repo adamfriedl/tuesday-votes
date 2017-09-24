@@ -24,6 +24,13 @@ class ApplicationController < Sinatra::Base
     redirect "/"
   end
 
+  get "/admin" do
+    @volunteers = Volunteer.all
+    @voters = Voter.all
+
+    erb :admin
+  end
+
   # private 
 
   # def volunteer_params
