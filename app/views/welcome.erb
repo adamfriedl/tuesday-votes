@@ -6,52 +6,58 @@
   Great State of Michigan<h2>
 </div>
 
-<div>
-  <p>Thanks for joining in our work! Please complete the volunteer form below and we'll be in touch!</p>
-</div>
 
-<form action="/" method="post">
+<div class="mdl-cell--2-offset-desktop mdl-cell--1-offset-tablet ">
 
-  <label>First Name:</label>
-  <input type="text" id="volunteer_first_name" name="volunteer[first_name]">
+  <h3>Thanks for joining in our work! Please complete the volunteer form below and we'll be in touch!</h3>
 
-  <label>Middle Initial:</label>
-  <input type="text" id="volunteer_middle_initial" name="volunteer[middle_initial]">
+  <div style="padding-bottom: 4em" class="mdl-cell--2-offset-desktop mdl-cell--1-offset-tablet">
+    <form action="/" method="post">
 
-  <label>Last Name:</label>
-  <input type="text" id="volunteer_last_name" name="volunteer[last_name]">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="volunteer_first_name" name="volunteer[first_name]">
+        <label class="mdl-textfield__label">First Name</label>
+      </div>
+      <br>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="volunteer_middle_initial" name="volunteer[middle_initial]">
+        <label class="mdl-textfield__label">Middle Initial</label>
+      </div>
+      <br>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="volunteer_last_name" name="volunteer[last_name]">
+        <label class="mdl-textfield__label">Last Name</label>
+      </div>
+      <br>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="date" id="volunteer_date_of_birth" name="volunteer[date_of_birth]">
+        <label class="mdl-textfield__label"></label>
+      </div>
 
-  <label>Date of Birth:</label>
-  <input type="date" id="volunteer_date_of_birth" name="volunteer[date_of_birth]">
+      <fieldset>
+        
+        <h4>Political Interests:</h4>
 
-  <fieldset>
-    
-    <legend>Political Interests:</legend>
-
-    <div>
-      <%@political_interests.each do |political_interest|%>
         <div>
-          <input type="checkbox" name="volunteer[political_interest_ids][]" value="<%=political_interest.id%>" id="<%=political_interest.name%>"><%=political_interest.name%></input>
+          <%@political_interests.each do |political_interest|%>
+            <div>
+              <label class="mdl-checkbox mdl-js-checkbox">
+                <input class="mdl-checkbox__input"type="checkbox" name="volunteer[political_interest_ids][]" value="<%=political_interest.id%>" id="<%=political_interest.name%>">
+                <span class = "mdl-checkbox__label"><%=political_interest.name%></span>
+              </label>
+            </div>
+          <%end%>
         </div>
-      <%end%>
-    </div>
 
-    and/or a different interest:<br>
-    <input type="text" id="political_interest_name" name="political_interest[name]">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" id="political_interest_name" name="political_interest[name]">
+          <label class="mdl-textfield__label">and/or a different interest</label>
+      </fieldset>
 
-  </fieldset>
+      <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="Create Volunteer">
 
-  <input type="submit" value="Create Volunteer">
+    </form>
 
-</form>
+  </div>
 
-<ol>
-  <% @volunteers.each do |volunteer| %>
-    <li><%=volunteer.first_name%></li>
-  <% end %>
-</ol>
-
-
-
-
-
+</div>
