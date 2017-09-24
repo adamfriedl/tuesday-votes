@@ -16,7 +16,11 @@ class ApplicationController < Sinatra::Base
 
   post "/" do
     @volunteer = Volunteer.create(params[:volunteer])
-    
+    if !params["political_interest"]["name"].empty?
+      @volunteer.political_interests << PoliticalInterest.create(name: params["political_interest"]["name"])
+    end
+    @volunteer.save
+
     redirect "/"
   end
 
